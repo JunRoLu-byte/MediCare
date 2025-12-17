@@ -166,11 +166,13 @@
 
 .paymentRow {
     display: flex;
+    flex-wrap: wrap;
     gap: 0.75rem;
 }
 
 .payButton {
     flex: 1;
+    min-width: 240px;
     padding: 0.9rem 1rem;
     border-radius: 10px;
     font-weight: 700;
@@ -178,6 +180,7 @@
     border: 2px solid rgba(102, 126, 234, 0.35);
     color: #667eea;
     transition: all 0.3s ease;
+    white-space: normal;
 }
 
 .payButton:hover {
@@ -540,5 +543,14 @@
 
     .formActions {
         flex-direction: column;
+    }
+
+    .paymentRow {
+        flex-direction: column;
+    }
+
+    .payButton {
+        width: 100%;
+        min-width: 0;
     }
 }

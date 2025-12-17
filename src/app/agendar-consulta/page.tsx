@@ -688,6 +688,9 @@ export default function AgendarConsulta() {
                                     <div><strong>Monto:</strong> {cardCurrency === 'PEN' ? 'S/' : '$'} {Number(consultationFee ?? 0).toFixed(2)}</div>
                                 </div>
                                 <div className={styles.modalRow}>
+                                    <div><strong>Cuenta bancaria:</strong> 191-23456789-00</div>
+                                </div>
+                                <div className={styles.modalRow}>
                                     <label className={styles.modalLabel} htmlFor="cardCurrency">Moneda *</label>
                                     <select
                                         id="cardCurrency"
