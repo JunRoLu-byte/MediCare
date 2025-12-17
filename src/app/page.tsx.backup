@@ -5,15 +5,12 @@ import { useRouter } from 'next/navigation';
 import styles from './page.module.css';
 import { authHelpers } from '@/lib/supabase';
 
-const ADMIN_EMAIL = '2411080183@undc.edu.pe';
-
 export default function Home() {
   const router = useRouter();
   const [activeSection, setActiveSection] = useState('inicio');
   const [user, setUser] = useState<any>(null);
   const [showProfileMenu, setShowProfileMenu] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [showLoginModal, setShowLoginModal] = useState(false);
 
   useEffect(() => {
     checkUser();
@@ -23,11 +20,6 @@ export default function Home() {
     const { user } = await authHelpers.getCurrentUser();
     setUser(user);
     setLoading(false);
-
-    if ((user?.email ?? '').toLowerCase() === ADMIN_EMAIL.toLowerCase()) {
-      router.push('/admin');
-      return;
-    }
   };
 
   const handleLogout = async () => {
@@ -36,17 +28,6 @@ export default function Home() {
     setShowProfileMenu(false);
     router.push('/');
   };
-
-  const handleScheduleAppointment = () => {
-    if (user) {
-      // Usuario está logueado, redirigir a página de agendar consulta
-      router.push('/agendar-consulta');
-    } else {
-      // Usuario no está logueado, mostrar modal
-      setShowLoginModal(true);
-    }
-  };
-
 
   const scrollToSection = (sectionId: string) => {
     setActiveSection(sectionId);
@@ -182,89 +163,12 @@ export default function Home() {
             >
               Servicios
             </button>
-
-            {/* Conditional rendering based on user authentication */}
-            {user ? (
-              <div className={styles.profileContainer}>
-                <button
-                  className={styles.profileButton}
-                  onClick={() => setShowProfileMenu(!showProfileMenu)}
-                >
-                  <div className={styles.profileAvatar}>
-                    {user.user_metadata?.full_name?.charAt(0).toUpperCase() || user.email?.charAt(0).toUpperCase()}
-                  </div>
-                  <span className={styles.profileName}>
-                    {user.user_metadata?.full_name || user.email?.split('@')[0]}
-                  </span>
-                  <span className={styles.dropdownArrow}>▼</span>
-                </button>
-
-                {showProfileMenu && (
-                  <div className={styles.profileMenu}>
-                    <div className={styles.profileMenuHeader}>
-                      <div className={styles.profileMenuAvatar}>
-                        {user.user_metadata?.full_name?.charAt(0).toUpperCase() || user.email?.charAt(0).toUpperCase()}
-                      </div>
-                      <div className={styles.profileMenuInfo}>
-                        <div className={styles.profileMenuName}>
-                          {user.user_metadata?.full_name || 'Usuario'}
-                        </div>
-                        <div className={styles.profileMenuEmail}>{user.email}</div>
-                      </div>
-                    </div>
-                    <div className={styles.profileMenuDivider}></div>
-                    <button
-                      className={styles.profileMenuItem}
-                      onClick={() => {
-                        setShowProfileMenu(false);
-                        router.push('/home');
-                      }}
-                    >
-                      <span className={styles.menuIcon}>👤</span>
-                      Mi Perfil
-                    </button>
-
-                    {(user?.email ?? '').toLowerCase() === ADMIN_EMAIL.toLowerCase() ? (
-                      <button
-                        className={styles.profileMenuItem}
-                        onClick={() => {
-                          setShowProfileMenu(false);
-                          router.push('/admin');
-                        }}
-                      >
-                        <span className={styles.menuIcon}>🛡️</span>
-                        Admin Dashboard
-                      </button>
-                    ) : null}
-                    <button
-                      className={styles.profileMenuItem}
-                      onClick={() => {
-                        setShowProfileMenu(false);
-                        router.push('/dashboard');
-                      }}
-                    >
-                      <span className={styles.menuIcon}>📊</span>
-                      Dashboard
-                    </button>
-                    <div className={styles.profileMenuDivider}></div>
-                    <button
-                      className={`${styles.profileMenuItem} ${styles.logoutItem}`}
-                      onClick={handleLogout}
-                    >
-                      <span className={styles.menuIcon}>🚪</span>
-                      Cerrar Sesión
-                    </button>
-                  </div>
-                )}
-              </div>
-            ) : (
-              <button
-                onClick={() => router.push('/login')}
-                className={styles.loginButton}
-              >
-                Iniciar Sesión
-              </button>
-            )}
+            <button
+              onClick={() => router.push('/login')}
+              className={styles.loginButton}
+            >
+              Iniciar Sesión
+            </button>
           </div>
         </div>
       </nav>
@@ -284,7 +188,7 @@ export default function Home() {
             <div className={styles.heroButtons}>
               <button
                 className={styles.primaryButton}
-                onClick={handleScheduleAppointment}
+                onClick={() => router.push('/signup')}
               >
                 Agenda tu Cita
               </button>
@@ -384,7 +288,7 @@ export default function Home() {
                   <span>{doctor.education}</span>
                 </div>
               </div>
-              <button className={styles.contactButton} onClick={handleScheduleAppointment}>
+              <button className={styles.contactButton}>
                 Agendar Consulta
               </button>
             </div>
@@ -474,39 +378,6 @@ export default function Home() {
           <p>&copy; 2024 MediCare Perú. Todos los derechos reservados.</p>
         </div>
       </footer>
-
-      {/* Login Modal */}
-      {showLoginModal && (
-        <div className={styles.modalOverlay} onClick={() => setShowLoginModal(false)}>
-          <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
-            <div className={styles.modalHeader}>
-              <div className={styles.modalIcon}>🔒</div>
-              <h2>Inicio de Sesión Requerido</h2>
-            </div>
-            <div className={styles.modalBody}>
-              <p>Debes iniciar sesión para agendar una consulta médica.</p>
-              <p>Por favor, inicia sesión o crea una cuenta para continuar.</p>
-            </div>
-            <div className={styles.modalActions}>
-              <button
-                className={styles.modalButtonSecondary}
-                onClick={() => setShowLoginModal(false)}
-              >
-                Cancelar
-              </button>
-              <button
-                className={styles.modalButtonPrimary}
-                onClick={() => {
-                  setShowLoginModal(false);
-                  router.push('/login');
-                }}
-              >
-                Iniciar Sesión
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 }

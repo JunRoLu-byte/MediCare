@@ -24,6 +24,12 @@
     display: flex;
     align-items: center;
     gap: 1rem;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
 }
 
 .logoIcon {
@@ -250,13 +256,20 @@
 }
 
 .actionCard p {
-    color: var(--gray-600);
-    line-height: 1.6;
-    font-size: 0.95rem;
+color: var(--gray-600);
 }
 
 /* Stats Section */
 .statsSection {
+background: var(--white);
+border-radius: var(--radius-xl);
+padding: 2rem;
+box-shadow: var(--shadow-md);
+border: 1px solid var(--gray-200);
+margin-bottom: 2rem;
+}
+
+.appointmentsSection {
     background: var(--white);
     border-radius: var(--radius-xl);
     padding: 2rem;
@@ -265,10 +278,94 @@
     margin-bottom: 2rem;
 }
 
-.statsGrid {
+.appointmentsList {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1rem;
+}
+
+.appointmentCard {
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem;
+    transition: all var(--transition-base);
+}
+
+.appointmentCard:hover {
+    border-color: var(--primary-blue);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.appointmentHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.appointmentDoctor {
+    font-weight: 700;
+    color: var(--gray-900);
+}
+
+.appointmentMeta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    color: var(--gray-600);
+    font-size: 0.95rem;
+}
+
+.appointmentsEmpty {
+    color: var(--gray-600);
+    background: var(--gray-50);
+    border: 1px dashed var(--gray-300);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem;
+}
+
+.statusBadge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    border: 2px solid transparent;
+    white-space: nowrap;
+}
+
+.status_neutral {
+    background: rgba(160, 174, 192, 0.18);
+    color: var(--gray-700);
+    border-color: rgba(160, 174, 192, 0.35);
+}
+
+.status_pendiente {
+    background: rgba(237, 137, 54, 0.18);
+    color: #c05621;
+    border-color: rgba(237, 137, 54, 0.35);
+}
+
+.status_ok {
+    background: rgba(56, 161, 105, 0.18);
+    color: #2f855a;
+    border-color: rgba(56, 161, 105, 0.35);
+}
+
+.status_bad {
+    background: rgba(229, 62, 62, 0.14);
+    color: #c53030;
+    border-color: rgba(229, 62, 62, 0.3);
+}
+
+.statsGrid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+gap: 2rem;
 }
 
 .statCard {

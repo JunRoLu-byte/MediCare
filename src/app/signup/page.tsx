@@ -35,8 +35,8 @@ export default function SignupPage() {
 
         if (!formData.phone.trim()) {
             newErrors.phone = 'El teléfono es requerido';
-        } else if (!/^\d{10}$/.test(formData.phone.replace(/\D/g, ''))) {
-            newErrors.phone = 'Teléfono inválido (10 dígitos)';
+        } else if (!/^\d{9}$/.test(formData.phone.replace(/\D/g, ''))) {
+            newErrors.phone = 'Teléfono inválido (debe tener exactamente 9 dígitos)';
         }
 
         if (!formData.password) {
@@ -121,7 +121,7 @@ export default function SignupPage() {
             <div className={styles.contentWrapper}>
                 {/* Brand Section */}
                 <div className={styles.brandSection}>
-                    <div className={styles.logo}>
+                    <div className={styles.logo} onClick={() => router.push('/')} style={{ cursor: 'pointer' }}>
                         <div className={styles.logoIcon}>🏥</div>
                         <span className={styles.logoText}>MediCare</span>
                     </div>
@@ -202,7 +202,8 @@ export default function SignupPage() {
                                         id="phone"
                                         type="tel"
                                         className={`${styles.input} ${errors.phone ? styles.error : ''}`}
-                                        placeholder="1234567890"
+                                        placeholder="987654321"
+                                        maxLength={9}
                                         value={formData.phone}
                                         onChange={(e) => handleChange('phone', e.target.value)}
                                     />

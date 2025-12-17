@@ -1,141 +1,181 @@
-# MediCare - Sistema de Consultorio Médico
+# 🏥 MediCare - Sistema de Consultorio Médico
 
-Sistema de gestión para consultorio médico construido con Next.js 16 y Supabase.
+Sistema completo de gestión para consultorio médico construido con **Next.js 16**, **TypeScript** y **Supabase**.
 
-## 🚀 Características
+![Next.js](https://img.shields.io/badge/Next.js-16.0.8-black?style=for-the-badge&logo=next.js)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=for-the-badge&logo=typescript)
+![Supabase](https://img.shields.io/badge/Supabase-Auth-green?style=for-the-badge&logo=supabase)
 
-- ✅ **Autenticación Completa**: Login y registro con Supabase
-- ✅ **Diseño Moderno**: UI inspirada en Facebook con tema médico
-- ✅ **Validación de Formularios**: Validación en tiempo real
-- ✅ **Dashboard Protegido**: Acceso solo para usuarios autenticados
-- ✅ **Responsive**: Diseño adaptable a todos los dispositivos
-- ✅ **TypeScript**: Código con tipado estático
-- ✅ **Animaciones**: Transiciones y efectos suaves
+---
 
-## 📋 Requisitos Previos
+## 🌟 Características
 
-- Node.js 18+ instalado
-- Cuenta en Supabase (gratuita)
-- npm o yarn
+### ✅ **Autenticación Completa**
+- Registro de usuarios con validación
+- Inicio de sesión seguro con Supabase
+- Cierre de sesión
+- Protección de rutas
 
-## 🛠️ Instalación
+### 👤 **Perfil de Usuario**
+- Información personal completa
+- Avatar personalizado
+- Datos de contacto
+- Historial de actividad
 
-1. **Clonar o descargar el proyecto**
+### 📊 **Dashboard Médico**
+- Resumen de salud del paciente
+- Estadísticas de citas y consultas
+- Acciones rápidas
+- Actividad reciente
 
-2. **Instalar dependencias**
-```bash
-npm install
-```
+### 🎨 **Diseño Premium**
+- UI moderna y profesional
+- Tema médico con gradientes
+- Animaciones suaves
+- 100% responsive
 
-3. **Configurar Supabase**
+---
 
-Sigue las instrucciones detalladas en [SUPABASE_SETUP.md](./SUPABASE_SETUP.md)
-
-Resumen rápido:
-- Crea un proyecto en [supabase.com](https://supabase.com)
-- Obtén tu Project URL y anon key
-- Crea un archivo `.env.local` en la raíz del proyecto:
-
-```env
-NEXT_PUBLIC_SUPABASE_URL=tu-project-url
-NEXT_PUBLIC_SUPABASE_ANON_KEY=tu-anon-key
-```
-
-4. **Iniciar el servidor de desarrollo**
-```bash
-npm run dev
-```
-
-5. **Abrir en el navegador**
-```
-http://localhost:3000
-```
-
-## 📁 Estructura del Proyecto
-
-```
-my-app/
-├── src/
-│   ├── app/
-│   │   ├── login/          # Página de inicio de sesión
-│   │   ├── signup/         # Página de registro
-│   │   ├── dashboard/      # Dashboard protegido
-│   │   ├── globals.css     # Estilos globales
-│   │   ├── layout.tsx      # Layout principal
-│   │   └── page.tsx        # Página principal (redirige a login)
-│   └── lib/
-│       └── supabase.ts     # Cliente y helpers de Supabase
-├── public/                 # Archivos estáticos
-├── .env.local             # Variables de entorno (crear este archivo)
-├── package.json
-└── README.md
-```
-
-## 🎨 Páginas Disponibles
-
-### `/login` - Inicio de Sesión
-- Formulario de login con email y contraseña
-- Validación de credenciales
-- Redirección al dashboard después del login
-- Enlace a página de registro
-
-### `/signup` - Registro
-- Formulario completo de registro
-- Validación en tiempo real
-- Integración con Supabase Auth
-- Confirmación por email (opcional)
-
-### `/dashboard` - Panel de Control
-- Acceso solo para usuarios autenticados
-- Información del usuario
-- Tarjetas de servicios médicos
-- Botón de cerrar sesión
-
-## 🔐 Seguridad
-
-- Las contraseñas se manejan de forma segura con Supabase Auth
-- Row Level Security (RLS) en Supabase
-- Variables de entorno para credenciales sensibles
-- Rutas protegidas con verificación de autenticación
-
-## 🎯 Funcionalidades Implementadas
-
-### Autenticación
-- [x] Registro de usuarios
-- [x] Inicio de sesión
-- [x] Cierre de sesión
-- [x] Protección de rutas
-- [ ] Recuperación de contraseña (próximamente)
-- [ ] Verificación de email (próximamente)
-
-### UI/UX
-- [x] Diseño responsive
-- [x] Animaciones y transiciones
-- [x] Validación de formularios
-- [x] Mensajes de error/éxito
-- [x] Estados de carga
-
-## 🚧 Próximas Características
-
-- [ ] Sistema de citas médicas
-- [ ] Gestión de pacientes
-- [ ] Historial médico
-- [ ] Recetas digitales
-- [ ] Chat con especialistas
-- [ ] Notificaciones por email
-- [ ] Panel de administración
-- [ ] Reportes y estadísticas
-
-## 🛠️ Tecnologías Utilizadas
+## 🚀 Tecnologías
 
 - **Framework**: Next.js 16 (App Router)
-- **Lenguaje**: TypeScript
+- **Lenguaje**: TypeScript 5
 - **Autenticación**: Supabase Auth
 - **Base de Datos**: Supabase (PostgreSQL)
 - **Estilos**: CSS Modules
 - **Fuentes**: Google Fonts (Inter)
 
-## 📝 Scripts Disponibles
+---
+
+## 📦 Instalación
+
+### **1. Clonar el repositorio**
+```bash
+git clone https://github.com/JunRoLu-byte/MediCare.git
+cd MediCare
+```
+
+### **2. Instalar dependencias**
+```bash
+npm install
+```
+
+### **3. Configurar variables de entorno**
+
+Crea un archivo `.env.local` en la raíz del proyecto:
+
+```env
+NEXT_PUBLIC_SUPABASE_URL=tu-supabase-url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=tu-supabase-anon-key
+```
+
+**Obtener credenciales de Supabase:**
+1. Ve a https://supabase.com/dashboard
+2. Crea un proyecto o usa uno existente
+3. Ve a Settings → API
+4. Copia `Project URL` y `anon public` key
+
+### **4. Configurar Supabase**
+
+**Importante:** Desactiva la confirmación de email para desarrollo:
+
+1. Ve a **Authentication** → **Providers** → **Email**
+2. Desactiva **"Confirm email"**
+3. Guarda los cambios
+
+Ver guía completa en: [DISABLE_EMAIL_CONFIRMATION.md](./DISABLE_EMAIL_CONFIRMATION.md)
+
+### **5. Iniciar el servidor**
+```bash
+npm run dev
+```
+
+Abre http://localhost:3000 en tu navegador.
+
+---
+
+## 📁 Estructura del Proyecto
+
+```
+MediCare/
+├── src/
+│   ├── app/
+│   │   ├── login/              # Página de inicio de sesión
+│   │   ├── signup/             # Página de registro
+│   │   ├── home/               # Página principal con perfil
+│   │   ├── dashboard/          # Dashboard médico
+│   │   ├── globals.css         # Estilos globales
+│   │   └── layout.tsx          # Layout principal
+│   └── lib/
+│       └── supabase.ts         # Cliente de Supabase
+├── public/                     # Archivos estáticos
+├── .env.local                  # Variables de entorno (crear)
+├── package.json
+└── README.md
+```
+
+---
+
+## 🎯 Funcionalidades
+
+### **Autenticación**
+- ✅ Registro de usuarios
+- ✅ Inicio de sesión
+- ✅ Cierre de sesión
+- ✅ Protección de rutas
+- ✅ Validación de formularios
+
+### **Perfil de Usuario**
+- ✅ Información personal
+- ✅ Avatar con inicial
+- ✅ Email y teléfono
+- ✅ Fecha de registro
+- ✅ ID de paciente
+
+### **Dashboard**
+- ✅ Resumen de salud
+- ✅ Estadísticas
+- ✅ Acciones rápidas
+- ✅ Actividad reciente
+
+---
+
+## 🔐 Seguridad
+
+- Contraseñas encriptadas por Supabase
+- Tokens JWT para sesiones
+- Variables de entorno para credenciales
+- Protección de rutas con middleware
+- Validación de formularios
+
+---
+
+## 🎨 Diseño
+
+### **Paleta de Colores**
+- 🔵 Azul primario: `#0066cc`
+- 🟢 Verde azulado: `#00a896`
+- ⚪ Grises neutros
+
+### **Características del Diseño**
+- Gradientes modernos
+- Animaciones suaves
+- Efectos hover
+- Sombras y profundidad
+- Responsive design
+
+---
+
+## 📱 Responsive
+
+La aplicación se adapta perfectamente a:
+- 💻 Desktop (1200px+)
+- 📱 Tablet (768px - 1199px)
+- 📱 Mobile (< 768px)
+
+---
+
+## 🧪 Scripts Disponibles
 
 ```bash
 # Desarrollo
@@ -151,39 +191,78 @@ npm start
 npm run lint
 ```
 
-## 🐛 Solución de Problemas
+---
 
-### Error: "Invalid API credentials"
-- Verifica que las variables de entorno en `.env.local` sean correctas
-- Asegúrate de reiniciar el servidor después de crear `.env.local`
+## 📚 Documentación Adicional
 
-### Error: "User not found"
-- Verifica que el usuario esté registrado en Supabase
-- Revisa la configuración de autenticación en Supabase
-
-### La página no carga
-- Verifica que el servidor esté corriendo (`npm run dev`)
-- Revisa la consola del navegador para errores
-- Asegúrate de que todas las dependencias estén instaladas
-
-## 📚 Recursos
-
-- [Documentación de Next.js](https://nextjs.org/docs)
-- [Documentación de Supabase](https://supabase.com/docs)
-- [Guía de Autenticación de Supabase](https://supabase.com/docs/guides/auth)
-
-## 📄 Licencia
-
-Este proyecto es de código abierto y está disponible bajo la licencia MIT.
-
-## 👥 Contribuciones
-
-Las contribuciones son bienvenidas. Por favor, abre un issue o pull request para sugerencias o mejoras.
-
-## 📞 Soporte
-
-Si tienes preguntas o necesitas ayuda, por favor abre un issue en el repositorio.
+- [Configuración de Supabase](./SUPABASE_SETUP.md)
+- [Desactivar Confirmación de Email](./DISABLE_EMAIL_CONFIRMATION.md)
+- [Configuración de Variables de Entorno](./ENV_SETUP.md)
 
 ---
 
-Desarrollado con ❤️ para mejorar la gestión de consultorios médicos
+## 🚧 Próximas Características
+
+- [ ] Sistema de citas médicas
+- [ ] Historial médico completo
+- [ ] Recetas digitales
+- [ ] Telemedicina (video consultas)
+- [ ] Chat con especialistas
+- [ ] Notificaciones por email
+- [ ] Panel de administración
+- [ ] Reportes y estadísticas
+
+---
+
+## 🤝 Contribuir
+
+Las contribuciones son bienvenidas. Por favor:
+
+1. Fork el proyecto
+2. Crea una rama (`git checkout -b feature/AmazingFeature`)
+3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
+4. Push a la rama (`git push origin feature/AmazingFeature`)
+5. Abre un Pull Request
+
+---
+
+## 📄 Licencia
+
+Este proyecto está bajo la Licencia MIT.
+
+---
+
+## 👨‍💻 Autor
+
+**JunRoLu-byte**
+
+- GitHub: [@JunRoLu-byte](https://github.com/JunRoLu-byte)
+- Proyecto: [MediCare](https://github.com/JunRoLu-byte/MediCare)
+
+---
+
+## 🙏 Agradecimientos
+
+- [Next.js](https://nextjs.org/)
+- [Supabase](https://supabase.com/)
+- [Vercel](https://vercel.com/)
+
+---
+
+## 📞 Soporte
+
+Si tienes preguntas o necesitas ayuda:
+
+1. Abre un [Issue](https://github.com/JunRoLu-byte/MediCare/issues)
+2. Revisa la [documentación](./SUPABASE_SETUP.md)
+3. Contacta al autor
+
+---
+
+<div align="center">
+
+**Desarrollado con ❤️ para mejorar la gestión de consultorios médicos**
+
+⭐ Si te gusta este proyecto, dale una estrella en GitHub ⭐
+
+</div>

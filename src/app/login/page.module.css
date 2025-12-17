@@ -55,6 +55,12 @@
     align-items: center;
     gap: 1rem;
     margin-bottom: 2rem;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
 }
 
 .logoIcon {
@@ -276,6 +282,44 @@
     color: var(--gray-500);
     font-size: 0.875rem;
     font-weight: 500;
+}
+
+/* Google Sign-In Button */
+.googleButton {
+    width: 100%;
+    padding: 0.875rem 1.5rem;
+    background: white;
+    color: #3c4043;
+    border: 2px solid #dadce0;
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    transition: all var(--transition-base);
+    margin-bottom: 1rem;
+}
+
+.googleButton:hover {
+    background: #f8f9fa;
+    border-color: #d2d3d4;
+    box-shadow: 0 1px 3px rgba(60, 64, 67, 0.3);
+}
+
+.googleButton:active {
+    background: #f1f3f4;
+}
+
+.googleButton:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.googleIcon {
+    width: 20px;
+    height: 20px;
 }
 
 .registerSection {

@@ -1,0 +1,291 @@
+.container {
+    min-height: 100vh;
+    background: var(--gray-50);
+}
+
+.header {
+    background: var(--white);
+    border-bottom: 1px solid var(--gray-200);
+    padding: 1rem 0;
+    box-shadow: var(--shadow-sm);
+}
+
+.headerContent {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+.logoIcon {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-dark) 100%);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.logoText {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--gray-900);
+}
+
+.userSection {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.userInfo {
+    text-align: right;
+}
+
+.userName {
+    font-weight: 600;
+    color: var(--gray-900);
+    font-size: 0.95rem;
+}
+
+.userEmail {
+    font-size: 0.8rem;
+    color: var(--gray-600);
+}
+
+.logoutButton {
+    padding: 0.5rem 1.25rem;
+    background: var(--white);
+    color: var(--error);
+    border: 2px solid var(--error);
+    border-radius: var(--radius-md);
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all var(--transition-base);
+}
+
+.logoutButton:hover {
+    background: var(--error);
+    color: var(--white);
+}
+
+.mainContent {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.titleSection {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-dark) 100%);
+    color: var(--white);
+    padding: 2rem;
+    border-radius: var(--radius-xl);
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow-lg);
+}
+
+.titleSection h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.titleSection p {
+    opacity: 0.95;
+}
+
+.actionsRow {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.refreshButton {
+    padding: 0.6rem 1rem;
+    border-radius: var(--radius-md);
+    background: rgba(255, 255, 255, 0.15);
+    color: var(--white);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    font-weight: 600;
+}
+
+.refreshButton:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.errorBox {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: var(--radius-md);
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+}
+
+.tableSection {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+}
+
+.tableWrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 980px;
+}
+
+.table th {
+    text-align: left;
+    font-size: 0.85rem;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--gray-600);
+    padding: 0.9rem 1rem;
+    border-bottom: 1px solid var(--gray-200);
+    background: var(--gray-50);
+    white-space: nowrap;
+}
+
+.table td {
+    padding: 0.9rem 1rem;
+    border-bottom: 1px solid var(--gray-200);
+    color: var(--gray-800);
+    vertical-align: middle;
+}
+
+.mono {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 0.85rem;
+}
+
+.subText {
+    margin-top: 0.2rem;
+    color: var(--gray-600);
+    font-size: 0.8rem;
+}
+
+.emptyCell {
+    text-align: center;
+    color: var(--gray-600);
+    padding: 2rem 1rem;
+}
+
+.rowActions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.link {
+    color: var(--primary-blue);
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.approveButton {
+    padding: 0.5rem 0.75rem;
+    border-radius: var(--radius-md);
+    background: var(--accent-teal);
+    color: var(--white);
+    font-weight: 700;
+    font-size: 0.85rem;
+}
+
+.approveButton:disabled {
+    opacity: 0.6;
+}
+
+.rejectButton {
+    padding: 0.5rem 0.75rem;
+    border-radius: var(--radius-md);
+    background: var(--error);
+    color: var(--white);
+    font-weight: 700;
+    font-size: 0.85rem;
+}
+
+.rejectButton:disabled {
+    opacity: 0.6;
+}
+
+.statusPill {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.6rem;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    border: 1px solid var(--gray-200);
+    background: var(--gray-50);
+}
+
+.statusPill[data-status="Pendiente"] {
+    background: rgba(245, 158, 11, 0.12);
+    border-color: rgba(245, 158, 11, 0.25);
+    color: #b45309;
+}
+
+.statusPill[data-status="Completado"] {
+    background: rgba(16, 185, 129, 0.12);
+    border-color: rgba(16, 185, 129, 0.25);
+    color: #047857;
+}
+
+.statusPill[data-status="Fallido"] {
+    background: rgba(239, 68, 68, 0.12);
+    border-color: rgba(239, 68, 68, 0.25);
+    color: #b91c1c;
+}
+
+.statusPill[data-status="Reembolsado"] {
+    background: rgba(59, 130, 246, 0.12);
+    border-color: rgba(59, 130, 246, 0.25);
+    color: #1d4ed8;
+}
+
+.loadingContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    gap: 1rem;
+    color: var(--gray-700);
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid var(--gray-200);
+    border-top: 4px solid var(--primary-blue);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

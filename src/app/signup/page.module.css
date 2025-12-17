@@ -55,6 +55,12 @@
     align-items: center;
     gap: 1rem;
     margin-bottom: 2rem;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
 }
 
 .logoIcon {

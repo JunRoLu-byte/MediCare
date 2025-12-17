@@ -55,7 +55,7 @@ export default function DashboardPage() {
             {/* Header */}
             <header className={styles.header}>
                 <div className={styles.headerContent}>
-                    <div className={styles.logo}>
+                    <div className={styles.logo} onClick={() => router.push('/')} style={{ cursor: 'pointer' }}>
                         <div className={styles.logoIcon}>🏥</div>
                         <span className={styles.logoText}>MediCare</span>
                     </div>
