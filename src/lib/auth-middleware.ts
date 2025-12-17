@@ -5,6 +5,7 @@
 // Uso: import { requireRole, requirePermission } from '@/lib/auth-middleware'
 
 import { roleHelpers, type UserRole, type Permission } from './supabase';
+import { useEffect, useState } from 'react';
 
 /**
  * Verifica si el usuario actual tiene un rol específico
@@ -105,11 +106,11 @@ export async function requireAllRoles(roles: UserRole[]): Promise<boolean> {
  * if (!hasRole('doctor')) return <Unauthorized />;
  */
 export function useAuth() {
-    const [user, setUser] = React.useState<any>(null);
-    const [roles, setRoles] = React.useState<any[]>([]);
-    const [isLoading, setIsLoading] = React.useState(true);
+    const [user, setUser] = useState<any>(null);
+    const [roles, setRoles] = useState<any[]>([]);
+    const [isLoading, setIsLoading] = useState(true);
 
-    React.useEffect(() => {
+    useEffect(() => {
         loadUserAndRoles();
     }, []);
 
